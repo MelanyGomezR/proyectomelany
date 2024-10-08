@@ -1,0 +1,17 @@
+import json
+
+class Catalogo:
+    def __init__(self):
+        self.productos = []
+
+    def cargar_desde_json(self, archivo_json):
+        with open(archivo_json, 'r') as archivo:
+            datos = json.load(archivo)
+            for item in datos:
+                producto = Producto(item['nombre'], item['precio'], item['categoria'])
+                self.productos.append(producto)
+
+    def guardar_en_archivo(self, archivo_salida):
+        with open(archivo_salida, 'w') as archivo:
+            productos_dict = [producto.__dict__ for producto in self.productos]
+            json.dump(productos_dict, archivo, indent=4)
