@@ -1,0 +1,6 @@
+class ContextoEstadoProducto:
+    def __init__(self, estado_inicial):
+        self.estado_actual = estado_inicial
+
+    def cambiar_estado(self, nuevo_estado):
+        self.estado_actual = nuevo_estado
