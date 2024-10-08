@@ -1,0 +1,22 @@
+class EstadoProducto:
+    def disponible(self):
+        pass
+
+    def agotado(self):
+        pass
+
+    def reservado(self):
+        pass
+
+class Producto:
+    def __init__(self, nombre, precio, categoria):
+        self.nombre = nombre
+        self.precio = precio
+        self.estado = None  # Se inicializa como None, cambiará con State
+        self.categoria = categoria
+
+    def cambiar_estado(self, nuevo_estado):
+        self.estado = nuevo_estado
+
+    def mostrar_informacion(self):
+        print(f"Producto: {self.nombre}, Precio: {self.precio}, Estado: {self.estado}")
